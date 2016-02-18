@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>{{ this.page.title }}</title>
+    <meta content="{{ commitHash }}" name="commitHash" />
+    <meta content="{{ commitComment }}" name="commitComment" />
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+
+    <div class="container">
+      <section class="header">
+        <h1>{{ this.page.title }}</h1>
+      </section>
+
+      <div class="row">
+        {{#markdown}}
+          {{> body }}
+        {{/markdown}}
+      </div>
+
+      <section class="footer">
+      </section>
+
+    </div>
+    <script>
+    </script>
+  </body>
+</html>

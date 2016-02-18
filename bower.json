@@ -1,0 +1,21 @@
+{
+  "name": "access-grantor",
+  "description": "A CloudFormation template generator to grant access",
+  "main": "stack.hbs",
+  "authors": [
+    "dave@trinimbus.com"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/TriNimbus/access-grantor",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "skeleton": "^2.0.4"
+  }
+}

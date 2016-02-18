@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+  - '4'
+before_script:
+  - npm install -g grunt-cli
+  - npm install
+before_deploy:
+  - npm install
+  - npm install -g grunt-cli
+  - npm install -g bower
+  - bower install
+  - pip install --user awscli
+  - export PATH=$PATH:$HOME/.local/bin
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: grunt prepare_site; aws s3 sync _output/ s3://$S3_BUCKET --delete --region $AWS_REGION
+  on:
+    branch: release
+# notifications:
+#   slack:
+#     rooms:
+#       # Generate with `travis encrypt "trinimbus:$WEBHOOK_TOKEN#room" --add notifications.slack.rooms`
+#       # Currently sending to #software-architecture for testing purposes.
+#       secure: "cAMhx1X87ku215wsCMhsn0Mbs7nc44Qpm99UD5b60Z7GKYAKeiMacyzLyt/gDkYAVVEUsoPK5P98/imOCuoT6qvOYe9hkZJsRJzySSm/KYtSgd4ooQNPvKG5cmaXns/99P7LD8PvZP3JvpZ97aOoBqjct+a/sLPmh4YaNoU2hHz4q4vFxuB+UwhieKqdFZLFRAcCXBI5sqDtdITSALQ5UK5x2DXqx2qcTVWif3x1ISGrC2lWYPMH+R5Rdciw+QvAH5RuQWZaULLDv5tyvciupD2TsrnV3R2v4HfVZNyRAoEM5NgmiGP7paBjc4D85sxzScXa4F22Scz9WlPbIP7/beZ9aeaHmqeKv9ynli0HLVaZ7OkRFTNdLUJfE3rtU07QyT3GXHKQ9V9j3kTREXcD/BbL5AolPTobdTEy/oEwssuv9beb8ENFlvEA5Sx0S3Xyeu1I/932qSHXnzVcDKt55w4cjCnvO0IgE/wssgnsJVZAHs9MIroSXBxCehQ4iMyHEARM/jB3jIftumwAacUBCOBbbke2vrSMVi5t8tJ4Af/Q4eXpQJpvY/Q0D7dhOr4aoXW+G0M5d8v7iEmSQXBpPGRhChRkITp3EsBTcq5hWx/qkKcty7z3Y+a5aTDIlg0OOEr5MiWVjK8e0JAYOasI6WOT61FbrTRpSCm/ULAxUCo="
+#     on_success: change
+#     on_failure: always

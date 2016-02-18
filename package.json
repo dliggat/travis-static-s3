@@ -1,0 +1,24 @@
+{
+  "name": "travis-static-s3",
+  "version": "0.1.0",
+  "scripts": {
+    "test": "grunt prepare_site"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dliggat/travis-static-s3.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-assemble": "^0.4.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.0",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jsbeautifier": "^0.2.10",
+    "grunt-jsonlint": "^1.0.7",
+    "jshint-stylish": "^2.1.0"
+  }
+}
