@@ -59,6 +59,14 @@ module.exports = function(grunt) {
           { expand: true, flatten: true, cwd: 'img/', src: '**', dest: '_output/img/', filter: 'isFile' }
         ]
       }
+    },
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['test/**/*.js']
+      }
     }
   });
 
@@ -69,6 +77,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-jsonlint');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-mocha-test');
 
   // grunt.registerTask('render', ['assemble:templates', 'jsbeautifier', 'jsonlint']);
   grunt.registerTask('prepare_site', ['assemble', 'cssmin', 'copy']);
