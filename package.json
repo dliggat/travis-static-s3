@@ -2,7 +2,7 @@
   "name": "travis-static-s3",
   "version": "0.1.0",
   "scripts": {
-    "test": "grunt prepare_site"
+    "test": "grunt prepare_site mochaTest"
   },
   "repository": {
     "type": "git",
@@ -11,6 +11,8 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "cheerio": "^0.20.0",
+    "fs": "0.0.2",
     "grunt": "^0.4.5",
     "grunt-assemble": "^0.4.0",
     "grunt-contrib-copy": "^1.0.0",
@@ -19,7 +21,9 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-jsbeautifier": "^0.2.10",
     "grunt-jsonlint": "^1.0.7",
+    "grunt-mocha-test": "^0.12.7",
     "jshint-stylish": "^2.1.0",
+    "mocha": "^2.4.5",
     "moment-timezone": "^0.5.3",
     "shelljs": "^0.6.0"
   }
