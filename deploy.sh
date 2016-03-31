@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export PATH=$PATH:$HOME/.local/bin
 echo "grunt" `which grunt`
 echo "aws" `which aws`
 grunt prepare_site
